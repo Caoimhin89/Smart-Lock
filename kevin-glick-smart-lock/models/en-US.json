@@ -1,29 +1,42 @@
 {
-	"invocation": "my test app",
+	"invocation": "smart lock",
 	"intents": [
 		{
-			"name": "HelloWorldIntent",
+			"name": "LockIntent",
 			"phrases": [
-				"hello",
-				"say hello",
-				"say hello world"
-			]
-		},
-		{
-			"name": "MyNameIsIntent",
-			"phrases": [
-				"{name}",
-				"my name is {name}",
-				"i am {name}",
-				"you can call me {name}"
+				"{lockStatus}",
+				"{lockStatus} my door",
+				"{lockStatus} the door",
+				"{lockStatus} my doors",
+				"{lockStatus} all doors"
 			],
 			"inputs": [
 				{
-					"name": "name",
-					"type": {
-						"alexa": "AMAZON.US_FIRST_NAME",
-						"dialogflow": "@sys.given-name"
-					}
+					"name": "lockStatus",
+					"type": "LOCK_STATUS"
+				}
+			]
+		}
+	],
+	"inputTypes": [
+		{
+			"name": "LOCK_STATUS",
+			"values": [
+				{
+					"value": "lock",
+					"synonyms": [
+						"close",
+						"secure",
+						"guard",
+						"protect",
+						"seal"
+					]
+				},
+				{
+					"value": "unlock",
+					"synonyms": [
+						"open"
+					]
 				}
 			]
 		}
